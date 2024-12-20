@@ -66,7 +66,7 @@ fn setup(
         DirectionalLight::default(),
         Transform::from_translation(Vec3::ONE).looking_at(Vec3::ZERO, Vec3::Y),
     ));
-
+    
     // camera
     commands.spawn((
         Camera3d::default(),
@@ -83,11 +83,11 @@ fn rotate_ground(
 
         let rotation_speed = std::f32::consts::PI; // Rotation speed in radians per second
 
-        if input.pressed(KeyCode::KeyQ) {
+        if input.pressed(KeyCode::KeyA) || input.pressed(KeyCode::ArrowLeft) {
             // Rotate counterclockwise around the Y-axis
             transform.rotate(Quat::from_rotation_y(rotation_speed * time.delta_secs()));
         }
-        if input.pressed(KeyCode::KeyE) {
+        if input.pressed(KeyCode::KeyD) || input.pressed(KeyCode::ArrowRight)  {
             // Rotate clockwise around the Y-axis
             transform.rotate(Quat::from_rotation_y(-rotation_speed * time.delta_secs()));
         }
